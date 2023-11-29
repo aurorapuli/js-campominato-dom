@@ -27,13 +27,6 @@ function createElement (tagElement, classList){
 
 }
 
-
-// creo l'arrey dove andrò a mettere le 16 "bombe"
-
-let bombe = arreyBombe(1, 100, 16);
-
-console.log(arreyBombe(1, 100, 16));
-
 // quando clicco play succederanno le seguenti cose
 
      playButton.addEventListener('click',
@@ -42,36 +35,57 @@ console.log(arreyBombe(1, 100, 16));
 
         row.innerHTML = "";
 
+          // creo l'arrey dove andrò a mettere le 16 "bombe"
 
+          let bombe = arreyBombe(1, 100, 16);
+
+          console.log(bombe);
+
+        
         for (let i = 1; i <= 100; i++){
 
-        // creo il mio elemento
+         // creo il mio elemento
 
           let col = createElement ('div', 'col');
 
            
-        //   appendo al mio elemento le i
+         //   appendo al mio elemento le i
           col.append(i);
+        
+           // appendo le col alla row
+           row.append (col);
 
-          console.log(col);
           
-
-        //   stabilisco che al click di ogni cella il colore cambierà
-
+          //   stabilisco che al click di ogni cella il colore cambierà
+          
           col.addEventListener ('click',
             function(){
+
+              // verifico se l'utente clicca su una boma
+
+              for( let e = 0; e < bombe.length; e++){
+    
+                const bombeIesimo = bombe [e];
+    
+                if(bombeIesimo == i){
+
+                  col.classList.add('red');
+  
+                  alert('Mi dispiace hai perso! Ricomincia il gioco');
+    
+                  // row.innerHTML = "";
+    
+                }
+              }
 
                 col.classList.add('lightblue');
 
                 console.log(i);
 
+
             });
 
-        // appendo le col alla row
-           row.append (col);
-
-        }
-       
+        }       
 });
 
 
