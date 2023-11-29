@@ -55,11 +55,31 @@ function createElement (tagElement, classList){
            // appendo le col alla row
            row.append (col);
 
-          
+
+          //  creo arrey degli elementi cliccati
+           let = arrClick =[];
+
+
           //   stabilisco che al click di ogni cella il colore cambierà
           
           col.addEventListener ('click',
             function(){
+
+              //  se il numero cliccato non è già incluso nel mio arrey allora aggiungilo
+              if(!arrClick.includes(i)){
+
+                arrClick.push(i);
+
+              }
+
+              if(arrClick.length == 84){
+
+                alert('Hai vinto!');
+              }
+          
+              console.log(arrClick);
+
+              
 
               // verifico se l'utente clicca su una boma
 
@@ -71,7 +91,7 @@ function createElement (tagElement, classList){
 
                   col.classList.add('red');
   
-                  alert('Mi dispiace hai perso! Ricomincia il gioco');
+                  alert('Hai perso! hai fatto ' + (arrClick.length - 1) + ' punti');
     
                   // row.innerHTML = "";
     
