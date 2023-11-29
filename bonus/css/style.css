@@ -100,3 +100,7 @@ form{
 select{
     width: 130px;
 }
+
+.red{
+    background-color: red;
+}
