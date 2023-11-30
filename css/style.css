@@ -21,6 +21,19 @@ header{
     background-color: white;
 }
 
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.img{
+    width: 60px;
+}
+
+.img img{
+    width: 100%;
+}
+
 #button{
     padding: 1px 35px;
 }
